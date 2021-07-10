@@ -1,0 +1,77 @@
+#wholePage, #canvas, .btns {
+	font-family: "Lucida Console";
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#canvas {
+	width: 80%;
+	border: solid black 1px;
+	display: block;
+	max-width: 800px;
+	background-color: black;
+}
+
+.status {
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#title {
+	font-size: 75px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.btns {
+	transition: 0.5s;
+	font-size: 35px;
+	background-color: red;
+	color: white;
+	border-color: darkred;
+	border-width: 3px;
+	border-radius: 35px;
+	display: block;
+}
+
+.btns:hover {
+	transition: 0.5s;
+	background-color: #ffcccb;
+	color: black;
+}
+
+.btns:active {
+	transition: 0s;
+	background-color: darkred;
+	color: white;
+}
+
+#newGame {
+	text-align: left;
+}
+
+#help {
+	text-align: right;
+}
+
+.input {
+	text-align: center;
+	width: 170px;
+	display: block;
+}
+
+.inputLabel {
+	text-align: center;
+	padding-right: 10px;
+	font-weight: bold;
+	width: 130px;
+	float: left;
+	display: block;
+}
+
+/*
+	display: inline;
+	text-align: right;
+	text-align: left;
+*/
