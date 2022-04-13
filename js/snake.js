@@ -33,6 +33,8 @@ canvas.height = blockSize * rows;
 // Snake class
 class Snake
 {	
+	direction = arrowKeys['left']
+
 	constructor()
 	{
 		blockPos = new Array(startingSize);
@@ -45,32 +47,6 @@ class Snake
 			// console.log("Position " + i + ": " + blockPos[i]["x"] + ", " + blockPos[i]["y"]);
 		}
 	}
-
-	keepMoving(e)
-	{
-		let direction = arrowKeys["left"];
-		if (e != undefined)
-		{
-			switch(e.keyCode)
-			{
-				case 37:    // left
-					direction = arrowKeys["left"];
-					break;
-				case 38:    // up
-					direction = arrowKeys["up"];
-					break;
-				case 39:    // right
-					direction = arrowKeys["right"];
-					break;
-				case 40:    // down
-					direction = arrowKeys["down"];
-					break;
-				default:
-					// Don't care
-			}
-		}
-		this.moveHead(direction);
-	}
 	
 	moveBody()
 	{
@@ -81,12 +57,11 @@ class Snake
 		}
 	}
 	
-	// TODO: Deal with stupid page scrolling issue
-	moveHead(/*e)//*/direction)
+	moveHead()
 	{
 		// console.log(blockPos[0]["x"] + " (" + blockPos[0]["x"]/blockSize + ") | " 
 			  //+ blockPos[0]["y"] + " (" + blockPos[0]["y"]/blockSize + ")");
-		switch(/*e.keyCode)//*/direction)
+		switch(snake.direction)
 		{
 			case 37:    // left
 				snake.moveBody();
@@ -131,6 +106,35 @@ class Snake
 			default:
 				// Don't care
 		}
+	}
+	
+	keepMoving(e)
+	{
+		if (e != undefined)
+		{
+			switch(e.keyCode)
+			{
+				case 37:    // left
+					e.preventDefault();
+					snake.direction = arrowKeys["left"];
+					break;
+				case 38:    // up
+					e.preventDefault();
+					snake.direction = arrowKeys["up"];
+					break;
+				case 39:    // right
+					e.preventDefault();
+					snake.direction = arrowKeys["right"];
+					break;
+				case 40:    // down
+					e.preventDefault();
+					snake.direction = arrowKeys["down"];
+					break;
+				default:
+					// Don't care
+			}
+		}
+		snake.moveHead();
 	}
 	
 	addBlock()
